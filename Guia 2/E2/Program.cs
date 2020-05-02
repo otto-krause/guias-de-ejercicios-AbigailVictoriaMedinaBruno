@@ -6,16 +6,18 @@ namespace E2
     {
         static void Main(string[] args)
         {
-            string especialidad1;
+            string especialidad1="hi";
             Clinica clinicas = new Clinica();
 
-            Console.WriteLine("Ingrese la especialidad deseada:");
-            especialidad1=Console.ReadLine();
-            Medico medico1 = clinicas.buscarMedico(especialidad1);
-            if(medico1 != null)
-                Console.WriteLine("El doctor "+ medico1.Nombre +" "+ medico1.Apellido +" esta disponible, se le asigno un turno.");
-            else
-                Console.WriteLine("Intente de nuevo más tarde.");
+            while(especialidad1 != "salir"){
+                Console.WriteLine("Ingrese la especialidad deseada(si desea salir ingrese *salir*):");
+                especialidad1=Console.ReadLine();
+                Medico medico1 = clinicas.buscarMedico(especialidad1);
+                if(medico1 != null)
+                    Console.WriteLine("El doctor "+ medico1.Nombre +" "+ medico1.Apellido +" esta disponible, se le asigno un turno.");
+                else
+                    Console.WriteLine("Intente de nuevo más tarde.");
+            }
         }
     }
 }
