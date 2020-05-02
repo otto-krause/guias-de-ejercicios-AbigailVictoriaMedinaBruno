@@ -19,7 +19,16 @@ namespace E2
             medicos.Add(federico);
             medicos.Add(pablo);
         }
-        
+        public Medico buscarMedico(string especialidad1){
+            foreach (Medico i in medicos)
+            {
+                if(i.Especialidad==especialidad1 && i.estaDisponible()){
+                    i.asignarTurno();
+                    return i;
+                }
+            }
+            return null;
+        }
 
 
     }

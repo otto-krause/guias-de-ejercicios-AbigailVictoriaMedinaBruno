@@ -11,7 +11,5 @@ namespace E3
             this.pais=pais;
             this.numeroDeFigurita=numeroDeFigurita;
         }
-        //dou
-
     }
 }

@@ -7,21 +7,15 @@ namespace E2
         static void Main(string[] args)
         {
             string especialidad1;
-            int contador=0;
             Clinica clinicas = new Clinica();
-            Console.WriteLine("Ingrese la especialidad deseada y le mostraremos los medicos disponibles:");
+
+            Console.WriteLine("Ingrese la especialidad deseada:");
             especialidad1=Console.ReadLine();
-            
-            foreach (Medico i in clinicas.medicos)
-            {
-                if(i.especialidad==especialidad1 && i.estaDisponible()){
-                    contador++;
-                    Console.WriteLine("El doctor "+ i.nombre +" "+ i.apellido +" esta disponible."); 
-                }
-            }
-            if(contador==0){
-                Console.WriteLine("Intente más tarde.");
-            }
+            Medico medico1 = clinicas.buscarMedico(especialidad1);
+            if(medico1 != null)
+                Console.WriteLine("El doctor "+ medico1.Nombre +" "+ medico1.Apellido +" esta disponible, se le asigno un turno.");
+            else
+                Console.WriteLine("Intente de nuevo más tarde.");
         }
     }
 }
