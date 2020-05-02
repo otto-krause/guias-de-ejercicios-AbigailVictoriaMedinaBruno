@@ -2,7 +2,7 @@ namespace E5
 {
     public class Supermercado
     {
-        public float total;
+        private float total;
         public List<Carrito> carritosUsados = new List<Carrito>();
         public void ganancias(){
             foreach (Carrito i in carritosUsados){
