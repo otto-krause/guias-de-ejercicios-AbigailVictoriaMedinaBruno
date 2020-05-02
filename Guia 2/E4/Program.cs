@@ -15,12 +15,13 @@ namespace E4
             Console.WriteLine("\nPelículas:");
             foreach (Pelicula i in lapeliteca.aux)
             {
-                Console.WriteLine("Nombre: "+ i.nombre +" / Género: "+ i.genero +" / Director:"+ i.director +" / Año:"+ i.año);
+                Console.WriteLine("Nombre: "+ i.Nombre +" / Género: "+ i.Genero +" / Director:"+ i.Director +" / Año:"+ i.Año);
             }
         }
         static void Main(string[] args)
         {
-            int numero=1,año=0;
+            int numero=1;
+            int año=0;
             Peliteca lapeliteca = new Peliteca();
             while(numero!=0){
                 Console.WriteLine("\n\n¿Cómo desea buscar las películas?");

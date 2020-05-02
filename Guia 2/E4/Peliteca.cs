@@ -32,28 +32,28 @@ namespace E4
         public void porGenero(string genero){
             aux.Clear();
             foreach (Pelicula i in peliculas){
-                if(i.genero == genero)
+                if(i.Genero == genero)
                     aux.Add(i);
             }
         }
         public void porNombre(string nombre){
             aux.Clear();
             foreach (Pelicula i in peliculas){
-                if(i.nombre == nombre)
+                if(i.Nombre == nombre)
                     aux.Add(i);
             }
         }
         public void porAño(int año){
             aux.Clear();
             foreach (Pelicula i in peliculas){
-                if(i.año == año)
+                if(i.Año == año)
                     aux.Add(i);
             }
         }
         public void porDirector(string director){
             aux.Clear();
             foreach (Pelicula i in peliculas){
-                if(i.director == director)
+                if(i.Director == director)
                     aux.Add(i);
             }
         }
