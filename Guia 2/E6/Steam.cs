@@ -15,9 +15,9 @@ namespace E6
         public List<Juego> Media { get => media; }
 
         public Steam(){
-            Calificacion calCOD1 = new Calificacion(7,"Muy bien desarrollado con buena trama");
-            Calificacion calCOD2 = new Calificacion(6,"Poco original");
-            Calificacion calCOD3 = new Calificacion(7,"Buena historia poca jugabilidad");
+            Calificacion calCOD1 = new Calificacion(5,"Muy bien desarrollado con buena trama");
+            Calificacion calCOD2 = new Calificacion(4,"Poco original");
+            Calificacion calCOD3 = new Calificacion(4,"Buena historia poca jugabilidad");
             listaDeCalificacion.Add(calCOD1);
             listaDeCalificacion.Add(calCOD2);
             listaDeCalificacion.Add(calCOD3);
@@ -25,9 +25,9 @@ namespace E6
 
             listaDeCalificacion.Clear();
 
-            Calificacion calLBP1 = new Calificacion(9,"Excelente jugabilidad para menores");
-            Calificacion calLBP2 = new Calificacion(8,"Muchos colores pero entretenido");
-            Calificacion calLBP3 = new Calificacion(6,"Buen juego para menores pero poca historia");
+            Calificacion calLBP1 = new Calificacion(3,"Excelente jugabilidad para menores");
+            Calificacion calLBP2 = new Calificacion(2,"Muchos colores pero entretenido");
+            Calificacion calLBP3 = new Calificacion(3,"Buen juego para menores pero poca historia");
             listaDeCalificacion.Add(calLBP1);
             listaDeCalificacion.Add(calLBP2);
             listaDeCalificacion.Add(calLBP3);
@@ -35,9 +35,9 @@ namespace E6
 
             listaDeCalificacion.Clear();
 
-            Calificacion calMC1 = new Calificacion(10,"Uno de los mejores juegos de combate");
-            Calificacion calMC2 = new Calificacion(8,"Buena trama y buena disponibilidad de multijugador");
-            Calificacion calMC3 = new Calificacion(9,"Excelente multijugador aunque malos graficos");
+            Calificacion calMC1 = new Calificacion(1,"Uno de los mejores juegos de combate");
+            Calificacion calMC2 = new Calificacion(3,"Buena trama y buena disponibilidad de multijugador");
+            Calificacion calMC3 = new Calificacion(4,"Excelente multijugador aunque malos graficos");
             listaDeCalificacion.Add(calMC1);
             listaDeCalificacion.Add(calMC2);
             listaDeCalificacion.Add(calMC3);
