@@ -1,24 +1,9 @@
 namespace E3
 {
-    public class LectoraDeCD:Componentes
+    public class LectoraDeCD:Discos
     {
-        //conectores
-        private int precioDelComponente=0;
-        private string conectores;
-
-        public int PrecioDelComponente { get => precioDelComponente; }
-
-        public LectoraDeCD(int precioDelComponente, string conectores)
+        public LectoraDeCD(int precioDelComponente, string conectores):base(precioDelComponente,conectores)
         {
-            this.precioDelComponente = precioDelComponente;
-            this.conectores = conectores;
-        }
-
-        public int precio(){
-            return precioDelComponente;
-        }
-        public bool esCompatible(Motherboard motherboard){
-            return (conectores == motherboard.Conectores);
         }
     }
 }

@@ -1,24 +1,9 @@
 namespace E3
 {
-    public class DiscoSSD:Componentes
+    public class DiscoSSD:Discos
     {
-        //conectores
-        private int precioDelComponente=0;
-        private string conectores;
-
-        public int PrecioDelComponente { get => precioDelComponente; }
-
-        public DiscoSSD(int precioDelComponente, string conectores)
+        public DiscoSSD(int precioDelComponente, string conectores):base(precioDelComponente,conectores)
         {
-            this.precioDelComponente = precioDelComponente;
-            this.conectores = conectores;
-        }
-
-        public int precio(){
-            return precioDelComponente;
-        }
-        public bool esCompatible(Motherboard motherboard){
-            return (conectores == motherboard.Conectores);
         }
     }
 }
