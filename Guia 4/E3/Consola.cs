@@ -18,7 +18,6 @@ namespace E3
         public virtual void agregarJuego(Juego juegoNuevo){
             int repetido=0;
             foreach(Juego juegoAux in listaDeJuegos){
-  /**/          Console.WriteLine(juegoAux);
                 if(juegoAux.Nombre == juegoNuevo.Nombre)
                     repetido=1;
             }
