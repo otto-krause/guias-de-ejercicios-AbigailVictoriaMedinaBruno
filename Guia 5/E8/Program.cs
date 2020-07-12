@@ -12,7 +12,7 @@ namespace E8
             List<List<int>> listaDeNumeros = new List<List<int>>{numeros,numeros1};
             Matematicas2 matematicas = new Matematicas2();
             foreach(List<int> lista in listaDeNumeros){
-                Console.WriteLine("De esta lista: ")
+                Console.WriteLine("De esta lista: ");
                 Console.WriteLine("\nLos numeros primos son: ");
                 matematicas.primos(lista).ForEach(numero => Console.WriteLine(numero));
                 
