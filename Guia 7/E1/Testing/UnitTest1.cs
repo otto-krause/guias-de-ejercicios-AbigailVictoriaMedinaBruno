@@ -29,8 +29,8 @@ namespace Testing
 
             peterparker = new PeterParker(traje1,100);
             spidermannoir = new SpidermanNoir(traje1,200,peterparker);
-            spidergwen = new SpiderGwen(traje1,300,8);
-            milesmorales = new MilesMorales(traje1,300,30);
+            spidergwen = new SpiderGwen(traje1,300,10);
+            milesmorales = new MilesMorales(traje1,100,30);
             kingpin = new Kingpin();
             integrantesDeSpiderTeam = new List<Spiderman>{peterparker,spidermannoir,spidergwen,milesmorales};
             spiderteam = new SpiderTeam(integrantesDeSpiderTeam,kingpin);
@@ -39,14 +39,34 @@ namespace Testing
         [Test]
         public void TestPoderDeGwenDebeSer1a10()
         {
-            Assert.AreEqual(true,spidergwen.Glamour > 1 && spidergwen.Glamour < 10);
+            Assert.AreEqual(false,spidergwen.Glamour > 1 && spidergwen.Glamour < 10);
         }
         [Test]
         public void TestKingPinFueVencido()
         {
             spiderteam.pelearConKingpPin();
             spiderteam.volverACasa();
-            Assert.AreEqual(true,kingpin.fueVencido());
+            Assert.AreEqual(false,kingpin.fueVencido());
+        }
+        [Test]
+        public void TestPoderDeSpiderGwen()
+        {
+            Assert.AreEqual(310,spidergwen.poder());
+        }
+        [Test]
+        public void TestPoderDePeterParker()
+        {
+            Assert.AreEqual(115,peterparker.poder());
+        }
+        [Test]
+        public void TestPoderDeSpidermanNoir()
+        {
+            Assert.AreEqual(117,spidermannoir.poder());
+        }
+        [Test]
+        public void TestPoderDeMiles()
+        {
+            Assert.AreEqual(130,milesmorales.poder());
         }
     }
 }
