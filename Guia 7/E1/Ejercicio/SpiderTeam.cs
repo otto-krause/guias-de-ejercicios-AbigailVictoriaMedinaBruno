@@ -21,6 +21,9 @@ namespace Ejercicio
             List<Spiderman> ListaMenor = integrantesDeSpiderTeam.OrderBy(spi => spi.poder()).ToList(); 
             if(kingpin.fueVencido())
                 integrantesDeSpiderTeam.Remove(ListaMenor.Last());
+            else 
+                throw new Exception("KingPin no fue vencido");
+            
         }
         public int fuerzaDelSpiderTeam(){
             return integrantesDeSpiderTeam.Sum(spi => spi.Fuerza);
