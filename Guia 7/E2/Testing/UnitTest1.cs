@@ -17,21 +17,23 @@ namespace Testing
         Adulto_Necio adulto2;
         Legion legion1;
         Legion legion2;
-        LegionDeLegiones legionLegion2;
+        Legion legionLegion2;
+        Barrios barrioNorte;
         [SetUp]
         public void Setup()
         {
             traje1 = new Traje("Winnie Poo","Tierno");
             traje2 = new Traje("SAW","Terrorifico");
-            niño1 = new Niño(traje1, 12);
+            niño1 = new Niño(traje1, 10);
             niño2 = new Niño(traje2, 8);
             niño3 = new Niño(traje1,5);
             abuelo1 = new Abuelo();
             adulto1 = new Adulto_Comun();
             adulto2 = new Adulto_Necio();
-            legion1 = new Legion(new List<Niño>{niño1,niño2});
-            legion2 = new Legion(new List<Niño>{niño2,niño3});
-            legionLegion2 = new LegionDeLegiones(new List<Legion>{legion1,legion2});
+            legion1 = new Legion(new List<Malevolo>{niño1,niño2});
+            legion2 = new Legion(new List<Malevolo>{niño2,niño3});
+            legionLegion2 = new Legion(new List<Malevolo>{legion1,legion2});
+            barrioNorte = new Barrios(new List<Niño>{niño1,niño2,niño3});
             
         }
         [Test]
@@ -47,18 +49,52 @@ namespace Testing
         [Test]
         public void TestParaSaberSiLegionTieneMasDeDosNiños()
         {
-            Assert.AreEqual(true, legion1.ListaDeNiños.Count() >= 2);
+            Assert.AreEqual(true, legion1.ListaDeMalevolos.Count() >= 2);
         }
         [Test]
         public void TestDeCapacidadDeAsustarTotalDeLaLegionDeLegiones()
         {
-            Assert.AreEqual(342, legionLegion2.capacidadDeAsustarTotal());
+            Assert.AreEqual(330, legionLegion2.capacidadDeAsustar());
         }
         [Test]
         public void TestAsustarUnAdultoConLaLegionDeLegiones()
         {
-            legionLegion2.asustarAUnAdulto(adulto1);
-            Assert.AreEqual(342, legionLegion2.capacidadDeAsustarTotal());
+            legionLegion2.asustarAUnAdulto(abuelo1);
+            Assert.AreEqual(0, legionLegion2.BolsaDeLegion);
+        }
+        [Test]
+        public void TestParaSaberLosTresNiñosQueMasCaramelosTienen()
+        {
+            barrioNorte.tresNiñosQueMasCaramelosTienen().
+            ForEach(nene => Console.WriteLine(nene.Actitud +" "+ nene.Bolsa));
+            Assert.AreEqual(2, barrioNorte.tresNiñosQueMasCaramelosTienen().Count());
+        }
+        [Test]
+        public void TestParaSaberCuantosTrajesHayDeNiñosConMasDe10Caramelos()
+        {
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);  
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);       
+            Console.WriteLine(niño1.cantidadDeCaramelos(0));   
+            barrioNorte.trajesUsadosPorNiñosConMasDe10Caramelos().
+            ForEach(traje => Console.WriteLine(traje.Nombre +" "+ traje.QueEs));
+            Assert.AreEqual(1, barrioNorte.trajesUsadosPorNiñosConMasDe10Caramelos().Count());
+        }
+        [Test]
+        public void TestParaSaberSiUnNiñoTieneIndigestion()
+        {
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            niño1.asustarAUnAdulto(abuelo1);
+            Console.WriteLine(niño1.cantidadDeCaramelos(0));  
+            niño1.comerCaramelos(12);
+            Assert.AreEqual(true, niño1.empachado());
         }
 
 

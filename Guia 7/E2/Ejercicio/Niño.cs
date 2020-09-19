@@ -3,22 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Ejercicio
 {
-    /*Para obtener caramelos, los niños intentarán asustar a los adultos.
-La capacidad de asustar de un niño se calcula como la sumatoria del susto que generan los elementos que tenga puestos
- (trajes y maquillajes, por ahora) multiplicado por la actitud del niño (un índice de 1 a 10):
-●   Todos los maquillajes asustan lo mismo (actualmente 3, pero puede cambiar en un futuro).
-●    El traje asusta según sea el personaje que represente:
-                       ○ Tiernos: trajes como Winnie Pooh o Sullivan asustan 2
-                       ○ Terroríficos: trajes como Jason o George Bush asustan 5
-Cuando un niño intenta asustar a un adulto, si lo logra, recibe de éste una cierta cantidad de caramelos,
- que guarda en su bolsa. No todos los adultos son igualmente propensos a asustarse:
-*/
-    public class Niño
+    public class Niño : Malevolo
     {
         Traje traje;
         int maquillajes;
         int actitud;
         int bolsa;
+        int estado;
 
         public Traje Traje { get => traje; }
         public int Maquillajes { get => maquillajes; }
@@ -27,19 +18,39 @@ Cuando un niño intenta asustar a un adulto, si lo logra, recibe de éste una ci
 
         public Niño(Traje traje, int actitud)
         {
+            this.estado = 0;
             this.traje = traje;
-            this.actitud = actitud;
             this.bolsa = 0;
             this.maquillajes = 3;
+            this.actitud = actitud;
+            if(actitud < 1 || actitud > 10){
+                throw new Exception("La actitud esta fuera de rango");
+            }
+        }
+        public int cantidadDeCaramelos(int masCaramelos){
+            bolsa += masCaramelos;
+            return bolsa;
         }
         public int capacidadDeAsustar(){
             return maquillajes * traje.susto() * actitud;
         }
         public void asustarAUnAdulto(Adulto adultoAux){
-            bolsa += adultoAux.susto(bolsa,capacidadDeAsustar());
+            if(!empachado() || estado != 2)
+                bolsa += adultoAux.susto(bolsa,capacidadDeAsustar());
         }
         public void comerCaramelos(int cantidadDeCaramelos){
+            if(bolsa >= cantidadDeCaramelos && cantidadDeCaramelos > 20 )
+                estado = 2;
+            else{
+                if(bolsa >= cantidadDeCaramelos && cantidadDeCaramelos > 10)
+                    estado = 1;
+            }
             bolsa = bolsa < cantidadDeCaramelos ? 0 : bolsa - cantidadDeCaramelos;
+        }
+        public bool empachado(){
+            if(estado == 1)
+                actitud /= 2;
+            return estado == 1;
         }
         
         
